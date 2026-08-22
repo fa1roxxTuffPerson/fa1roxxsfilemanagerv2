@@ -61,12 +61,17 @@ object ShizukuHelper {
         }
     }
 
+    /** Простой список имён файлов/папок (для совместимости с вызовом listDir). */
+    fun listDir(path: String): List<String> {
+        return listDirDetailed(path).map { it.first }
+    }
+
     /** Список (имя, isDirectory, размер) для указанного пути через shell (обходит scoped storage). */
     fun listDirDetailed(path: String): List<Triple<String, Boolean, Long>> {
         val safePath = path.replace("\"", "\\\"")
         val command = "for f in \"$safePath\"/*; do [ -e \"\$f\" ] || continue; " +
             "n=\$(basename \"\$f\"); " +
-            "if [ -d \"\$f\" ]; then echo \"D|0|\$n\"; " +
+            "if [ -d \"\$f\" ] ; then echo \"D|0|\$n\"; " +
             "else sz=\$(stat -c%s \"\$f\" 2>/dev/null || echo 0); echo \"F|\$sz|\$n\"; fi; done"
         val output = runShellCommand(command)
         return output.lines().filter { it.isNotBlank() }.mapNotNull { line ->
