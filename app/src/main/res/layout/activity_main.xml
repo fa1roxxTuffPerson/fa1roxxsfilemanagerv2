@@ -30,6 +30,7 @@
                 android:id="@+id/btnHome"
                 style="@style/Widget.FA1ROXX.QuickButton"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Главная" />
 
@@ -37,6 +38,7 @@
                 android:id="@+id/btnData"
                 style="@style/Widget.FA1ROXX.QuickButton"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Data" />
 
@@ -44,6 +46,7 @@
                 android:id="@+id/btnObb"
                 style="@style/Widget.FA1ROXX.QuickButton"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Obb" />
 
@@ -51,6 +54,7 @@
                 android:id="@+id/btnMedia"
                 style="@style/Widget.FA1ROXX.QuickButton"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Media" />
         </LinearLayout>
