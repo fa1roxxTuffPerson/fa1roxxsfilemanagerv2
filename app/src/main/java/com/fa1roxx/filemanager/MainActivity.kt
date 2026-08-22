@@ -203,7 +203,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Буфер обмена пуст", Toast.LENGTH_SHORT).show()
             return
         }
-        val destPath = "$currentPath/${clip.name}"
+        val destPath = "\( currentPath/ \){clip.name}"
         val useShizuku = clip.viaShizuku || currentIsShizuku || ShizukuHelper.hasPermission()
 
         val ok = if (useShizuku) {
