@@ -8,7 +8,8 @@ import com.google.android.material.card.MaterialCardView
 
 class FileAdapter(
     private var items: List<FileItem>,
-    private val onClick: (FileItem) -> Unit
+    private val onClick: (FileItem) -> Unit,
+    private val onLongClick: (FileItem) -> Unit
 ) : RecyclerView.Adapter<FileAdapter.VH>() {
 
     inner class VH(view: View) : RecyclerView.ViewHolder(view) {
@@ -40,6 +41,10 @@ class FileAdapter(
         }
         holder.icon.setImageResource(iconRes)
         holder.card.setOnClickListener { onClick(item) }
+        holder.card.setOnLongClickListener {
+            onLongClick(item)
+            true
+        }
     }
 
     override fun getItemCount(): Int = items.size
