@@ -3,12 +3,14 @@ package com.fa1roxx.filemanager
 import java.io.File
 
 data class FileItem(
-    val file: File,
-    val name: String = file.name,
-    val isDirectory: Boolean = file.isDirectory,
-    val sizeBytes: Long = if (file.isFile) file.length() else 0L,
-    val lastModified: Long = file.lastModified()
+    val path: String,
+    val name: String,
+    val isDirectory: Boolean,
+    val sizeBytes: Long = 0L,
+    val viaShizuku: Boolean = false
 ) {
+    val file: File get() = File(path)
+
     val extension: String
         get() = name.substringAfterLast('.', "").lowercase()
 
@@ -23,6 +25,16 @@ data class FileItem(
             sizeBytes >= kb -> String.format("%.2f КБ", sizeBytes / kb)
             else -> "$sizeBytes Б"
         }
+    }
+
+    companion object {
+        fun fromFile(file: File): FileItem = FileItem(
+            path = file.absolutePath,
+            name = file.name,
+            isDirectory = file.isDirectory,
+            sizeBytes = if (file.isFile) file.length() else 0L,
+            viaShizuku = false
+        )
     }
 }
 
