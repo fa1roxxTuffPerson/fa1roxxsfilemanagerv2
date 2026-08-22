@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_surface"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/text_primary"
+            app:title="FA1ROXX FILE MANAGER" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp"
+            android:paddingBottom="12dp"
+            android:weightSum="4">
+
+            <Button
+                android:id="@+id/btnHome"
+                style="@style/Widget.FA1ROXX.QuickButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="Главная" />
+
+            <Button
+                android:id="@+id/btnData"
+                style="@style/Widget.FA1ROXX.QuickButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="Data" />
+
+            <Button
+                android:id="@+id/btnObb"
+                style="@style/Widget.FA1ROXX.QuickButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="Obb" />
+
+            <Button
+                android:id="@+id/btnMedia"
+                style="@style/Widget.FA1ROXX.QuickButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="Media" />
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="88dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <TextView
+        android:id="@+id/emptyState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Папка пуста"
+        android:textColor="@color/text_secondary"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnShizuku"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:contentDescription="Запросить доступ Shizuku"
+        android:src="@drawable/ic_shield"
+        app:backgroundTint="@color/accent"
+        app:tint="@color/bg_main" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
